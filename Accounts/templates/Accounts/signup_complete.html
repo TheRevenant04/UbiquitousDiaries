@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class = "container mt-5">
+        <div class = "row justify-content-center align-items-center">
+            <div class = "col text-white">
+            {% if message %}
+                {{ message }}
+            {% endif %}
+            {% if not message %}
+                <p>Welcome to the community.</p>
+                <p>Thank you for being a part of Ubiquitous Diaries.</p>
+                <p>Thank you for confirming your email. You may now <a href="{% url 'Accounts:login' %}">Sign In</a> and use our services.</p>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

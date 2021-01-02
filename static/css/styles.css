@@ -1,0 +1,117 @@
+a {
+    color : #BB86FC;
+}
+a:hover {
+    color : #03DAC5;
+}
+a:active {
+    color : #03DAC5;
+}
+
+body,ol {
+    background-color : #000000 !important;
+    font-family: 'Roboto', sans-serif;
+}
+
+button {
+   background-color : #BB86FC !important;
+}
+
+h2{
+    color : white;
+}
+
+h4 {
+    color : white;
+    background-color : red !important;
+}
+
+#content-wrap {
+  padding-bottom: 15rem;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 3.5rem;
+  background-color : #BB86FC;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.bg-purple, .btn-purple, .diary-btn-color, .note-btn-color {
+    background-color : #BB86FC !important;
+
+}
+
+.custom-control-input:active ~
+.custom-control-label::before {
+  background-color: #BB86FC !important;
+  border-color: #BB86FC !important;
+}
+
+.custom-control-input:checked ~
+.custom-control-label::before {
+    border-color: #BB86FC !important;
+    background-color: #BB86FC !important;
+}
+
+.custom-control-input:focus ~
+.custom-control-label::before {
+    border-color: #BB86FC !important;
+    box-shadow: 0 0 0 0rem rgba(0, 0, 0, 0) !important;
+}
+
+.custom-control-input:focus:
+not(:checked) ~ .custom-control-label::before {
+  border-color: #BB86FC !important;
+}
+
+.errorlist {
+    list-style : none;
+}
+
+.form-background-color {
+    background-color : #121212;
+}
+
+.form-control:focus {
+    border-color : #BB86FC;
+    box-shadow : 0 0 0 0.2rem rgba(204, 102, 255, 1);
+}
+
+.navbar-custom {
+    background-color : #BB86FC;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text,
+.navbar-custom .navbar-nav .nav-link {
+    color: #000000;
+}
+
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color: #ffffff;
+}
+
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+    position: absolute;
+    left: -17px;
+}
+
+.navbar-nav > li > .dropdown-menu {
+    background-color : #BB86FC;
+}
+
+.text-center {
+    text-align : center;
+}
+
+.text-purple {
+    color : #BB86FC;
+}

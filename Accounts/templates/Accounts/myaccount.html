@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+       <div class = "row justify-content-center mt-2">
+          <ul class="nav nav-tabs">
+              <li class="nav-item">
+                  <a href="#personalInfo" class="nav-link active" data-toggle="tab">Personal Info</a>
+              </li>
+              <li class="nav-item">
+                  <a href="#security" class="nav-link" data-toggle="tab">Security</a>
+              </li>
+          </ul>
+       </div>
+       <div class="row justify-content-center mt-2">
+           <div class="col-xl-8">
+              <div class="tab-content">
+                  <div class="tab-pane fade show active" id="personalInfo">
+                      <div class="card">
+                          <div class="card-header text-center form-background-color">
+                              <h1 class="text-white">Personal Info<h1>
+                          </div>
+                          <div class="card-body form-background-color text-white">
+                              <form action="{% url 'Accounts:myaccount' %}" method="POST" novalidate>
+                              {% csrf_token %}
+                                  <div class="form-group">
+                                      {{form.first_name.label_tag}}
+                                      {{form.first_name}}
+                                      <small>{{form.first_name.errors}}</small>
+                                  </div>
+                                  <div class="form-group">
+                                      {{form.last_name.label_tag}}
+                                      {{form.last_name}}
+                                      <small>{{form.last_name.errors}}</small>
+                                  </div>
+                                  <div class="form-group">
+                                      {{form.username.label_tag}}
+                                      {{form.username}}
+                                      <small>{{form.last_name.errors}}</small>
+                                  </div>
+                                  <div class="form-group text-center">
+                                      <button type="submit" class="btn">Save Changes</button>
+                                  </div>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="tab-pane fade" id="security">
+                      <div class="row justify-content-center align-items-center mt-2">
+                          <div class="col-xl-8">
+                              <div class="card">
+                                  <div class="card-body form-background-color text-center">
+                                      <a class="btn diary-btn-color" href="{% url 'Accounts:password_change' %}" role="button">Change Password</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+{% endblock %}

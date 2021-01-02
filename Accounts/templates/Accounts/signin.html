@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class = "container mt-5">
+        <div class = "row justify-content-center align-items-center">
+            <div class = "col-xl-4">
+                <div class="card">
+                    <div class="card-header form-background-color">
+                        <h2 class = "text-center">Sign In</h2>
+                    </div>
+                    {% if messages %}
+                        <div class="messages text-center bg-danger">
+                            {% for message in messages %}
+                            <p{% if message.tags %} class="{{ message.tags }} text-white"{% endif %}>{{ message }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    {% if form.errors %}
+                        <div class="bg-danger text-white text-center">
+                            <p>Username or password is invalid.</p>
+                        </div>
+                    {% endif %}
+                    <div class="card-body form-background-color">
+                        <form method="POST" novalidate>
+                        {% csrf_token %}
+                            <div class="form-group">
+                                {{ form.username }}
+                                 <small class="text-danger">{{ form.errors.username|striptags}}</small>
+                            </div>
+                            <div class="form-group">
+                                {{ form.password }}
+                                 <small class="text-danger">{{ form.errors.password|striptags}}</small>
+                            </div>
+                            <div class = "form-group text-center">
+                                <button type="submit" class="btn btn-block">Submit</button>
+                            </div>
+                            <div class = "text-center">
+                                <a href = "{% url 'Accounts:password_reset' %}"><small>Forgot Password?</small></a>
+                            </div>
+                            <div class = "text-center">
+                                <a href = "{% url 'Accounts:send_username' %}"><small>Forgot Username?</small></a>
+                            </div>
+                            <div class = "text-center">
+                                <label class="text-white"><small>Not using Ubiquitous Diaries yet? <a href = "{% url 'Accounts:signup' %}">Sign Up</a></small></label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class = "container mt-2">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'Notes:my_diaries' %}">MyDiaries</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{diary.title}}</li>
+        </ol>
+        <div class = "row justify-content-center">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a href="#createNote" class="nav-link active" data-toggle="tab">Create Note</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#viewNotes" class="nav-link" data-toggle="tab">View Notes</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#deleteDiary" class="nav-link" data-toggle="tab">Delete Diary</a>
+                </li>
+            </ul>
+        </div>
+        <div class="row justify-content-center align-items-center mt-2">
+            <div class="col-xl-8">
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="createNote">
+                        <div class="card">
+                            <div class="card-header text-center form-background-color">
+                                <h1 class="text-white">Create Note<h1>
+                            </div>
+                            <div class="card-body form-background-color">
+                                {% if error_message %}
+                                    <div class="text-center text-danger">
+                                        <h5>{{error_message}}</h5>
+                                    </div>
+                                {% endif %}
+                                <form action="{% url 'Notes:diary_content' diary=diary %}" method="POST" novalidate>
+                                {% csrf_token %}
+                                    <div class="form-group">
+                                        {{form.title}}
+                                        <small class="text-danger">{{form.title.errors|striptags}}</small>
+                                    </div>
+                                    <div class = "form-group text-center">
+                                        <button type="submit" class="btn">Create Note</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="viewNotes">
+                        <div class="row justify-content-center">
+                            <div class="col-xl-8">
+                                <div class="card">
+                                    <div class="card-header text-center form-background-color">
+                                        <h1 class="text-white">{{diary.title}}<h1>
+                                    </div>
+                                    {% if notes %}
+                                    <div class="card-body form-background-color">
+                                        <div class="form-group">
+                                            {% for note in notes %}
+                                                <div class=" text-center form-group">
+                                                    <a class="btn btn-block note-btn-color" href="{% url 'Notes:note_content' note=note diary=diary %}" role="button">{{note.title}}</a>
+                                                    <small class="text-white">Last updated on {{note.last_update_time}}</small>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="deleteDiary">
+                        <div class="form-group text-center">
+                            <a class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop" role="button">Delete Diary</a>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Danger</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                  Are you sure you want to delete <strong>{{diary.title}}<strong>?
+                                </div>
+                                <div class="modal-footer">
+                                    <a class="btn btn-purple" href="{% url 'Notes:delete_diary' diary=diary %}" role="button">Yes</a>
+                                    <a class="btn btn-purple" data-dismiss="modal" role="button">No</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

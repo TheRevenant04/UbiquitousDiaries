@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class = "container mt-5">
+        <div class = "row justify-content-center align-items-center">
+            <div class = "col-xl-4">
+                <div class="card">
+                    <div class="card-header form-background-color">
+                        <h2 class = "text-center">Forgot Username</h2>
+                    </div>
+                    <div class="card-body form-background-color">                    
+                        <form action="{% url 'Accounts:send_username' %}" method="POST"  novalidate> 
+                        {% csrf_token %}
+                            <div class="form-group">  
+                                {{ form.email }}
+                                <small class="text-danger">{{ form.errors.email|striptags }}</small>  
+                            </div> 
+                            <div class = "form-group text-center">
+                                <button type="submit" class="form-control btn btn-block">Send Username</button>  
+                            </div>
+                        </form>                 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+{% endblock %}
