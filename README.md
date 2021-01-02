@@ -61,5 +61,5 @@ and add the following line in the 'settings.py' file.
 1. Run the project.
    >(path to your project)$python manage.py runserver
    
-1.Open a browser and enter the following URL
+1. Open a browser and enter the following URL
   >127.0.0.1:8000
