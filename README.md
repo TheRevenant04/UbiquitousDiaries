@@ -44,7 +44,7 @@ and add the following line in the 'settings.py' file.
 1. (**Skip this step if you already have the required version**)Install Python.
 
 1. Clone the project from the project repo
-   >$git clone https://github.com/TheRevenant04/UbiquitousDiaries.
+   >$git clone https://github.com/TheRevenant04/UbiquitousDiaries.git
 
 1. (**Optional but recommended**) Create a virtual environment in the project folder. Replace **name** with a name you of your choice.
    >(path to your project)$python -m venv **name**  
