@@ -10,8 +10,8 @@ A simple note taking web app created using python's Django framework.
 * The web app also stores a user's password in hashed form.
 
 ## Screenshots
-![SignUp page](/static/images/signup.png)
-![SignNn page](/static/images/signin.png)
+![Home page](/static/images/home.png)
+![Signin page](/static/images/signin.png)
 ![Diaries page](/static/images/diaries.png)
 ![EditNote page](/static/images/editnote.png)
 
