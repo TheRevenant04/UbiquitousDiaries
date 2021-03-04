@@ -5,7 +5,7 @@ __pycache__
 
 # Env
 .env
-myvenv/
+uvenv/
 venv/
 
 # Database
@@ -22,4 +22,3 @@ Thumbs.db*
 ehthumbs*.db
 [Dd]esktop.ini
 $RECYCLE.BIN/
-
